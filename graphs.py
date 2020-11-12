@@ -33,12 +33,13 @@ for filename in os.listdir():
                 data[challenge][1].append(float(x.split(',')[-1].strip()))
         f.close()
 
-print(data)
-dates = matplotlib.dates.date2num(data["Micro Flick - Challenge "][0])
+print(data.keys())
+curr = '1 Wall 6 targets Adjust - Challenge '
+dates = matplotlib.dates.date2num(data[curr][0])
 
-sns.regplot(dates, data["Micro Flick - Challenge "][1])
-plt.title("Micro Flick - Challenge ")
-plt.plot_date(dates, data["Micro Flick - Challenge "][1], color = '#1f77b4')
+sns.regplot(dates, data[curr][1])
+plt.title(curr)
+plt.plot_date(dates, data[curr][1], color = '#1f77b4')
 plt.show()
 
 # coef = np.polyfit(dates, data["1 Wall 6 targets Adjust - Challenge "][1], 1)
